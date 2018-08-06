@@ -1,0 +1,36 @@
+﻿//auto generated file, please do not edit
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
+
+public class ConfigManager
+{
+    private static ConfigManager _inst = null;
+    public static ConfigManager Inst
+    {
+        get { return _inst ?? new ConfigManager(); }
+    }
+
+	private ConfigManager()
+    {
+        _inst = this;
+    }
+
+//FIELDS
+
+    public void LoadAll()
+    {
+//LOADALL
+    }
+
+//GET
+
+    private TextAsset LoadTextAsset(string name)
+    {
+        return Resources.Load<TextAsset>("Config/" + name);
+    }
+
+//DESERIALIZE
+
+}

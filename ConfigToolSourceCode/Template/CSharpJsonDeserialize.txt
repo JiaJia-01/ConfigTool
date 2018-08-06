@@ -1,0 +1,4 @@
+﻿	private T Deserialize<T>(TextAsset ta)
+    {
+        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(ta.text);
+    }

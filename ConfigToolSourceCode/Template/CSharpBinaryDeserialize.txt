@@ -1,0 +1,9 @@
+﻿    private object Deserialize(TextAsset ta)
+    {
+        BinaryFormatter formater = new BinaryFormatter();
+        MemoryStream ms = new MemoryStream(ta.bytes);
+        object ret = formater.Deserialize(ms);
+        ms.Dispose();
+        ms.Close();
+        return ret;
+    }
