@@ -21,7 +21,7 @@ namespace ConfigTool
 
             Console.WriteLine("--------------------compile-----------------------------");
             assemblyPath = Path.Combine(assemblyPath, Config.unityConfig.assemblyName);
-            Assembly assembly = Compiler.GenerateAssembly(data, assemblyPath);
+            Assembly assembly = Compiler.GenerateAssembly(data, assemblyPath, EPlatform.Client);
 
             Console.WriteLine("--------------------reflection-----------------------------");
             Misc.CreateInstance(assembly, data);

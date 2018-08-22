@@ -14,6 +14,9 @@ namespace ConfigTool
         public int rowIndexType = 4;
         public int rowIndexName = 5;
         public int rowIndexContent = 6;
+        public int rowIndexServerClient = 1;
+
+        public string ____ = "EExportType.Unity  only export 'Client' and 'Both' columes ";
         public UnityConfig unityConfig = new UnityConfig();
     }
 

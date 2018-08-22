@@ -18,6 +18,7 @@ namespace ConfigTool
             List<TableInfo> info = new List<TableInfo>();
             foreach (var item in allFiles)
             {
+                ExcelFormater.FormatSingle(item);
                 info.Add(ParseSingle(item));
                 Console.WriteLine("Finish Parse " + item.Name);
             }
@@ -35,6 +36,7 @@ namespace ConfigTool
                 int colume = 1;
                 string typeTemp = sheet.Cells[Config.baseConfig.rowIndexType, colume].Text;
                 string nameTemp = sheet.Cells[Config.baseConfig.rowIndexName, colume].Text;
+                string platformTemp = sheet.Cells[Config.baseConfig.rowIndexServerClient, colume].Text;
 
                 while (!string.IsNullOrEmpty(typeTemp) && !string.IsNullOrEmpty(nameTemp))
                 {
@@ -42,11 +44,13 @@ namespace ConfigTool
                     {
                         colume = colume,
                         name = nameTemp,
-                        typeName = typeTemp
+                        typeName = typeTemp,
+                        platform = ParsePlatform(platformTemp)
                     });
                     ++colume;
                     typeTemp = sheet.Cells[Config.baseConfig.rowIndexType, colume].Text;
                     nameTemp = sheet.Cells[Config.baseConfig.rowIndexName, colume].Text;
+                    platformTemp = sheet.Cells[Config.baseConfig.rowIndexServerClient, colume].Text;
                 }
 
                 int row = Config.baseConfig.rowIndexContent;
@@ -66,6 +70,26 @@ namespace ConfigTool
                 }
             }
             return table;
+        }
+
+        private static readonly string EPlatform_Both_Str = EPlatform.Both.ToString().ToLower();
+        private static readonly string EPlatform_Client_Str = EPlatform.Client.ToString().ToLower();
+        private static readonly string EPlatform_Server_Str = EPlatform.Server.ToString().ToLower();
+
+        public static EPlatform ParsePlatform(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return EPlatform.Both;
+
+            str = str.ToLower();
+
+            if (str.Equals(EPlatform_Server_Str))
+                return EPlatform.Server;
+            else if (str.Equals(EPlatform_Client_Str))
+                return EPlatform.Client;
+            else
+                return EPlatform.Both;
+
         }
 
     }

@@ -10,5 +10,7 @@ namespace ConfigTool
 
         public int colume;
 
+        public EPlatform platform = EPlatform.Both;
+
     }
 }

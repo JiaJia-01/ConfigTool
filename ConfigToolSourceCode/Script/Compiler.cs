@@ -10,17 +10,17 @@ namespace ConfigTool
     class Compiler
     {
         
-        public static Assembly GenerateAssembly(List<TableInfo> data, string assemblyFolder = null)
+        public static Assembly GenerateAssembly(List<TableInfo> data, string assemblyFolder = null, EPlatform platform = EPlatform.Both)
         {
             string[] source = new string[data.Count];
             for (int i = 0; i < data.Count; i++)
             {
-                source[i] = GenerateSourceCode(data[i]);
+                source[i] = GenerateSourceCode(data[i], platform);
             }
             return Compile(source, assemblyFolder);
         }
 
-        private static string GenerateSourceCode(TableInfo info)
+        private static string GenerateSourceCode(TableInfo info, EPlatform platform)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("using System.Collections;\nusing System.Collections.Generic;\n\n[System.Serializable]\npublic class "
@@ -30,6 +30,8 @@ namespace ConfigTool
 
             foreach (var item in info.cols)
             {
+                if ((item.platform & platform) == 0)
+                    continue;
                 sb.Append("    public ");
                 sb.Append(Config.TYPE_DICT[item.typeName]);
                 sb.Append(" ");
