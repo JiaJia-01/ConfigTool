@@ -21,8 +21,8 @@
 # 其它
 
 对于使用unity il2cpp script backend 的朋友，请参见[Managed bytecode stripping with il2cpp](https://docs.unity3d.com/Manual/IL2CPP-BytecodeStripping.html) 。由于unity会默认剥离未使用的代码，所以请在项目中添加link.xml文件，内容如下：
-'
+```xml
 <linker>
     <assembly fullname="config" preserve="all" />
-</linker>
-'
+</linker> 
+```
