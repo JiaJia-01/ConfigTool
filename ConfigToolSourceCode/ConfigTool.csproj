@@ -74,6 +74,7 @@
     <Compile Include="Script\Exporter\EExportType.cs" />
     <Compile Include="Script\Exporter\EPlatform.cs" />
     <Compile Include="Script\Exporter\IExporter.cs" />
+    <Compile Include="Script\Exporter\JsTsExporter.cs" />
     <Compile Include="Script\Exporter\LuaExporter.cs" />
     <Compile Include="Script\Exporter\UnityExporter.cs" />
     <Compile Include="Script\Excel\ExcelFormater.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Script\Serialize\BinarySerializer.cs" />
     <Compile Include="Script\Serialize\ESerializeType.cs" />
     <Compile Include="Script\Serialize\JsonSerializer.cs" />
+    <Compile Include="Script\ValueConverter\JsTsValueConverter.cs" />
     <Compile Include="Script\ValueConverter\LuaValueConverter.cs" />
     <Compile Include="Script\ValueConverter\ValueConverter.cs" />
   </ItemGroup>

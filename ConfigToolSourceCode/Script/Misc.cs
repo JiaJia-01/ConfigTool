@@ -28,7 +28,7 @@ namespace ConfigTool
                 foreach (Dictionary<int, string> rowData in table.cellData)
                 {
                     object obj = assembly.CreateInstance(table.tableName);
-                    
+
                     foreach (ColumeInfo colInfo in table.cols)
                     {
                         object value = ValueConverter.Convert(rowData[colInfo.colume], colInfo.typeName);
@@ -69,6 +69,10 @@ namespace ConfigTool
                     return new UnityExporter();
                 case EExportType.Lua:
                     return new LuaExporter();
+                case EExportType.Js:
+                    return new JsTsExporter(".js");
+                case EExportType.Ts:
+                    return new JsTsExporter(".ts");
                 default:
                     return null;
             }

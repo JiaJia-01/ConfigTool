@@ -8,6 +8,14 @@ namespace ConfigTool
     public enum EExportType
     {
         Unity,
-        Lua
+        Lua,
+        /// <summary>
+        /// javascript
+        /// </summary>
+        Js,
+        /// <summary>
+        /// typescript
+        /// </summary>
+        Ts
     }
 }

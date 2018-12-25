@@ -7,6 +7,7 @@ Assets/AssetStoreTools*
 ConfigToolSourceCode/obj*
 Excutable/*
 UnityProj/*
+Exported/*
 Excel/*
 
 # Visual Studio cache directory
